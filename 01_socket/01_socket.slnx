@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="01_server/01_server.csproj" />
+  <Project Path="02_client/02_client.csproj" />
+</Solution>
