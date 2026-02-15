@@ -1,4 +1,7 @@
 <Solution>
   <Project Path="01_server/01_server.csproj" />
   <Project Path="02_client/02_client.csproj" />
+  <Project Path="03_multi_thread_server/03_multi_thread_server.csproj" Id="b82cd087-7f59-45a6-96cb-cc6579d9181f" />
+  <Project Path="04_multi_thread_client/04_multi_thread_client.csproj" Id="f76aadbd-8fe5-4de5-9c1a-ba70ff599408" />
+  <Project Path="05_udp/05_udp.csproj" Id="94424e4e-0643-4fdf-b25b-5d05de18469b" />
 </Solution>
