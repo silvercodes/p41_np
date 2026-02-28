@@ -1,5 +1,6 @@
 ﻿using System.Net.Sockets;
 using UTP;
+using UtpTypes;
 
 namespace Server;
 
@@ -23,7 +24,7 @@ internal class Client
 
             while(true)
             {
-                UtpMessage message = engine.Receive();
+                UtpMessage<JsonPayload> message = engine.Receive<JsonPayload>();
 
                 // ...
             }

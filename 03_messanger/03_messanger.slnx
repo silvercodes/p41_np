@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="Server/Server.csproj" />
+  <Project Path="TestClient/TestClient.csproj" Id="6aa43fce-5ac6-41ef-b506-69efa110e914" />
   <Project Path="UTP/UTP.csproj" />
+  <Project Path="UtpTypes/UtpTypes.csproj" Id="06c98b94-9214-4cd5-bad8-2122701e9934" />
 </Solution>
