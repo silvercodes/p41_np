@@ -13,10 +13,11 @@ public class UtpEngine
         this.netStream = netStream;
     }
 
-    public UtpMessage<T> Receive<T>()
-        where T : IPayload
+    public UtpMessage<TPayload, TActionEnum> Receive<TPayload, TActionEnum>()
+        where TPayload : IPayload
+        where TActionEnum: System.Enum
     {
-        int readingSize = ConvertToInt(ReadBytes(UtpMessage<T>.MESSAGE_LEN_LABEL_SIZE));
+        int readingSize = ConvertToInt(ReadBytes(UtpMessage<TPayload, TActionEnum>.MESSAGE_LEN_LABEL_SIZE));
 
         memStream = new MemoryStream(readingSize);
 
@@ -26,7 +27,7 @@ public class UtpEngine
         netStream.ReadExactly(memStream.GetBuffer(), 0, readingSize);
         memStream.Position = 0;
 
-        UtpMessage<T> utpm = new UtpMessage<T>();
+        UtpMessage<TPayload, TActionEnum> utpm = new UtpMessage<TPayload, TActionEnum>();
 
         using StreamReader sr = new StreamReader(memStream);
 
@@ -39,10 +40,11 @@ public class UtpEngine
 
     }
 
-    private void ExtractActionCode<T>(UtpMessage<T> utpm)
-        where T : IPayload
+    private void ExtractActionCode<TPayload, TActionEnum>(UtpMessage<TPayload, TActionEnum> utpm)
+        where TPayload : IPayload
+        where TActionEnum : System.Enum
     {
-        short actionCode = ConvertToShort(ReadBytes(UtpMessage<T>.MESSAGE_LEN_ACTION_CODE));
+        TActionEnum actionCode = ConvertToShort(ReadBytes(UtpMessage<TPayload, TActionEnum>.MESSAGE_LEN_ACTION_CODE));
 
         utpm.ActionCode = actionCode;
     }
